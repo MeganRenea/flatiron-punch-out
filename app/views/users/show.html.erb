@@ -1,0 +1,3 @@
+<%= @user.name %>
+<p> You have won <%= @user.wins %> times.</p>
+<%= button_to "Play Game?", user_games_path(@user), method: :create %>

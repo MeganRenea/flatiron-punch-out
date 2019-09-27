@@ -1,0 +1,14 @@
+<img src="https://i.ibb.co/SRZ6kGn/Test-image.jpg">
+<%=button_to "Left Hook", user_game_left_hook_path(@user, @game)%>
+<%=button_to "Right Hook", user_game_right_hook_path(@user, @game)%>
+<%=button_to "Dodge Left", user_game_left_dodge_path(@user, @game)%>
+<%=button_to "Dodge Right", user_game_right_dodge_path(@user, @game)%>
+<%= @user.hp %>
+<%= @game.computer.hp %>
+<% if flash[:computer] %>
+<p><%= flash[:computer] %></p>
+<% end %>
+<% if flash[:results] %>
+<p><%= flash[:results] %></p>
+<% end %>
+round <%= @game.round %>
