@@ -1,5 +1,6 @@
 class WinnersController < ApplicationController
     def index
+        @user = User.find(params[:id])
         @hash = Winner.all.reduce({}) do |hash, winner|
             hash[winner.user.name] ||= 0
             hash[winner.user.name] += 1

@@ -73,4 +73,13 @@ class GamesController < ApplicationController
         redirect_to user_game_path(params[:user_id],@game)
     end
 
+    def uppercut
+        @game = Game.find(params[:game_id])
+        @game.uppercut
+        @game.user_hits = 0
+        @game.save
+        redirect_to user_game_path(params[:user_id],@game)
+        flash[:computer] = "Uppercut! 20 damage!!"
+    end
+
 end
