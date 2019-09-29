@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_182843) do
+ActiveRecord::Schema.define(version: 2019_09_29_100459) do
 
   create_table "computers", force: :cascade do |t|
     t.string "name", default: "Computer"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_182843) do
     t.string "back_knockout"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_hits", default: 0
   end
 
   create_table "users", force: :cascade do |t|

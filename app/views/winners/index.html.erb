@@ -1,4 +1,10 @@
+
 <h1>Leaderboard</h1>
 <% @hash.each do |k,v| %>
-<p><%= k %> has <%= v %> wins</p>
+<% if k == @user.name %>
+<p>You have <%= v %> win(s).</p>
+<% else %>
+<p><%= k %> has <%= v %> win(s)</p>
 <% end %>
+<% end %>
+<%= button_to "Back", @user, method: :get %>

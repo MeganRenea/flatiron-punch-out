@@ -3,6 +3,9 @@
 <%=button_to "Right Hook", user_game_right_hook_path(@user, @game)%>
 <%=button_to "Dodge Left", user_game_left_dodge_path(@user, @game)%>
 <%=button_to "Dodge Right", user_game_right_dodge_path(@user, @game)%>
+<% if @game.user_hits >= 3 %>
+<%= button_to "Uppercut", user_game_uppercut_path(@user, @game)%>
+<% end %>
 <%= @user.hp %>
 <%= @game.computer.hp %>
 <% if flash[:computer] %>
@@ -10,5 +13,8 @@
 <% end %>
 <% if flash[:results] %>
 <p><%= flash[:results] %></p>
+<% end %>
+<% if flash[:hit] %>
+<p><%= flash[:hit] %></p>
 <% end %>
 round <%= @game.round %>
