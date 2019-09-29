@@ -11,7 +11,7 @@ class Game < ApplicationRecord
             self.user.save
             self.computer.save
         elsif computer == "rh"
-            self.user.ap -= 5
+            self.user.ap -= 2
             self.user.save
         elsif computer == "ld"
         elsif computer == "rd"
@@ -25,7 +25,7 @@ class Game < ApplicationRecord
             computer = self.computer.moves
         
             if computer == "lh"
-                self.user.ap -= 5
+                self.user.ap -= 2
                 self.user.save
             elsif computer == "rh"
                 self.computer.hp -= self.user.ap 
@@ -48,7 +48,7 @@ class Game < ApplicationRecord
         
             if computer == "lh"
                 self.user.hp -= 15
-                self.computer.save
+                self.user.save
             elsif computer == "rh"
                 self.user.ap += 5
                 self.user.save

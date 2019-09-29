@@ -17,7 +17,7 @@ class GamesController < ApplicationController
         @user = User.find(params[:user_id])
         @game = Game.find(params[:id])
         @computer = @game.computer
-        if @game.computer.hp <= 0 && @game.round < 3
+        if @game.computer.hp <= 0 && @game.round <= 3
             flash[:results] = "You Win!"
             @game.round += 1
             @game.user_wins += 1
@@ -27,7 +27,7 @@ class GamesController < ApplicationController
             @computer.hp = 100
             @computer.save
             @game.save
-        elsif @user.hp <= 0 && @game.round < 3
+        elsif @user.hp <= 0 && @game.round <= 3
             flash[:results] = "You lose!"
             @game.round += 1
             @game.computer_wins += 1

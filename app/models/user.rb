@@ -7,21 +7,6 @@ class User < ApplicationRecord
     wins ||= 0
     end
 
-    def lh
-        "lh"
-    end
-
-    def rh
-        "rh"
-    end
-
-    def ld
-        "ld"
-    end
-
-    def rd 
-        "rd"
-    end
 
     def ap=(num) 
         if num < 10
@@ -30,7 +15,7 @@ class User < ApplicationRecord
         if num > 35
             @ap = 35
         end
-        @ap
+        @ap = num
     end
 
 
