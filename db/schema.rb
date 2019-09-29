@@ -15,13 +15,18 @@ ActiveRecord::Schema.define(version: 2019_09_26_182843) do
   create_table "computers", force: :cascade do |t|
     t.string "name", default: "Computer"
     t.integer "game_id"
+    t.integer "hp", default: 100
+    t.integer "ap", default: 15
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "games", force: :cascade do |t|
-    t.integer "fighter_id"
-    t.integer "challenger_id"
+    t.integer "user_id"
+    t.integer "computer_id"
+    t.integer "round", default: 1
+    t.integer "user_wins", default: 0
+    t.integer "computer_wins", default: 0
     t.string "fight_pic"
     t.string "front_hit_pic"
     t.string "back_hit_pic"
@@ -35,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_09_26_182843) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.integer "hp", default: 100
+    t.integer "ap", default: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,15 @@
+<h1>Flatiron Punch-Out</h1>
+<p>Game Rules:</p>
+<p>User and Computer start with 100% health.</p>
+<p> uses keys “Q,W” to punch left or right respectively</p>
+<p>User uses keys “A,S” to dodge left or right respectively.</p>
+<p>Successful hits(by user to computer) -10% off Computer health</p>
+<p>5 total hits gives special move (used with space bar) which does 30% damage</p>
+<p>Every successful dodge by user increases user regular punch damage by %5</p>
+<p>Level 1 Computer landed punches always do 15% damage.</p>
+
+<%= form_for @user do |f| %>
+<%= f.label :name%>
+<%= f.text_field :name %>
+<%= f.submit %>
+<% end %>
