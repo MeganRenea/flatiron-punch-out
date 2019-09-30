@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+ img {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 50%;
+ }
+ body {
+     background-color: black;
+     color: white;
+ }
+
+ /* .button_to {
+  
+ } */

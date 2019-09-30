@@ -1,5 +1,11 @@
-<img src="https://i.ibb.co/SRZ6kGn/Test-image.jpg">
-<%=button_to "Left Hook", user_game_left_hook_path(@user, @game)%>
+<%if flash[:computer] && flash[:computer].include?("You Right Hook")%>
+<img src="https://i.ibb.co/xXD1yzQ/LVL3-USER-RIGHT-HOOK-4x.png">
+<%elsif flash[:computer] && flash[:computer].include?("You Left Hook")%>
+<img src="https://i.ibb.co/7QDBxcv/LVL3-USER-LEFT-HOOK-4x.png">
+<%else%>
+<img src="https://i.ibb.co/NWH0PGL/LVL3-USER-STAND-4x.png">
+<%end%>
+<%=button_to "Left Hook", user_game_left_hook_path(@user, @game) %>
 <%=button_to "Right Hook", user_game_right_hook_path(@user, @game)%>
 <%=button_to "Dodge Left", user_game_left_dodge_path(@user, @game)%>
 <%=button_to "Dodge Right", user_game_right_dodge_path(@user, @game)%>
@@ -8,6 +14,7 @@
 <% end %>
 <%= @user.hp %>
 <%= @game.computer.hp %>
+Points: <%= @game.points%>
 <% if flash[:computer] %>
 <p><%= flash[:computer] %></p>
 <% end %>

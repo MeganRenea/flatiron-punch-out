@@ -4,12 +4,25 @@ class GamesController < ApplicationController
     end
 
     def create
-
     @user = User.find(params[:user_id])
-    @user.update(hp: 100)
-    @computer = Computer.create
-    @game = Game.create(user_id: @user.id, computer: @computer)
-    redirect_to "/users/#{@user.id}/games/#{@game.id}"
+    if @user.level == 2
+        @computer = Computer.create(name: "Sebastian", ap: 20)
+        @game = Game.create(user_id: @user.id, computer: @computer)
+        redirect_to "/users/#{@user.id}/games/#{@game.id}"
+    elsif @user.level == 3
+        @computer = Computer.create(name: "RedDarkness", ap: 30)
+        @game = Game.create(user_id: @user.id, computer: @computer)
+        redirect_to "/users/#{@user.id}/games/#{@game.id}"
+    elsif @user.level > 3
+        @user.level = 1
+        @user.save
+        redirect_to @user
+    else 
+        @computer = Computer.create(name: "Yoan")
+        @game = Game.create(user_id: @user.id, computer: @computer)
+        redirect_to "/users/#{@user.id}/games/#{@game.id}"
+    end
+
 
     end
 
@@ -19,8 +32,11 @@ class GamesController < ApplicationController
         @computer = @game.computer
         if @game.computer.hp <= 0 && @game.round <= 3
             flash[:results] = "You Win!"
+            @game.points += @user.hp + @user.ap
             @game.round += 1
             @game.user_wins += 1
+            
+            @game.user_hits = 0
             @user.hp = 100
             @user.ap = 10
             @user.save
@@ -29,9 +45,11 @@ class GamesController < ApplicationController
             @game.save
         elsif @user.hp <= 0 && @game.round <= 3
             flash[:results] = "You lose!"
+            @game.points -= 50
             @game.round += 1
             @game.computer_wins += 1
             @user.hp = 100
+            @game.user_hits = 0
             @user.ap = 10
             @user.save
             @computer.hp = 100
@@ -39,9 +57,13 @@ class GamesController < ApplicationController
             @game.save
         end
         if @game.computer_wins == 2
+            @user.level = 1
+            @user.save
             render :lose
         elsif @game.user_wins == 2
-            winner = Winner.create(user: @user)
+            winner = Winner.create(user: @user, game_id: @game.id)
+            @user.level += 1
+            @user.save
             render :win
         end
 
@@ -82,4 +104,8 @@ class GamesController < ApplicationController
         flash[:computer] = "Uppercut! 20 damage!!"
     end
 
+    def computer_lvl
+        @user = User.find(params[:user_id])
+        render :computer_lvl
+    end
 end

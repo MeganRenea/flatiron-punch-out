@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   root "users#new"
 
  get "/users/:id/leaderboard", to: "winners#index", as:"leaderboard"
-  
+ 
+ resources :users do
+  get "/computer_lvl", to: "games#computer_lvl", as:"computer_lvl"
+ end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
  end
