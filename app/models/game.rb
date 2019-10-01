@@ -13,20 +13,20 @@ class Game < ApplicationRecord
             self.user_hits += 1
             self.points += self.user.ap
             self.save
-            computer += "You Left Hook!"
+            computer = "You Left Hook! The Computer Left Hooks!"
         elsif computer == "rh"
             self.user.ap = self.user.ap - 5
             self.user.save
-            computer += " #{self.computer.name} Blocks!"
+            computer = " #{self.computer.name} Blocks!"
         elsif computer == "ld"
-            computer += " Miss!"
+            computer = "You Miss!"
         elsif computer == "rd"
             self.computer.hp -= self.user.ap 
             self.computer.save
             self.points += self.user.ap
             self.user_hits += 1
             self.save
-            computer += " You Left Hook Hit!"
+            computer = " You Left Hook!"
         end
         computer
     end
@@ -37,7 +37,7 @@ class Game < ApplicationRecord
             if computer == "lh"
                 self.user.ap =  self.user.ap - 5
                 self.user.save
-                computer += " #{self.computer.name} Blocks!"
+                computer = " #{self.computer.name} Blocks!"
 
             elsif computer == "rh"
                 self.computer.hp -= self.user.ap 
@@ -47,16 +47,16 @@ class Game < ApplicationRecord
                 self.computer.save
                 self.user_hits += 1
                 self.save
-                computer += "You Right Hook!"
+                computer = "You Right Hook! #{self.computer.name} Right Hooks!"
             elsif computer == "ld"
                 self.computer.hp -= self.user.ap 
                 self.computer.save
                 self.user_hits += 1
                 self.points += self.user.ap
                 self.save
-                computer += "You Right Hook"
+                computer = "You Right Hook"
             elsif computer == "rd"
-                computer += " Miss!"
+                computer = "You Miss!"
                
             end
     
@@ -69,25 +69,25 @@ class Game < ApplicationRecord
             if computer == "lh"
                 self.user.hp -= self.computer.ap
                 self.user.save
-                computer += "#{self.computer.name} Hits!"
+                computer = "#{self.computer.name} Hits You With Left Hook!"
             elsif computer == "rh"
                 self.user.ap = self.user.ap + 5
                 self.user.save
                 self.points += 10
                 self.save
-                computer += " Computer Right Hook You Right Dodge!"
+                computer = "#{self.computer.name} Right Hooks You Dodge Right!"
             elsif computer == "ld"
                 self.user.ap = self.user.ap + 5
                 self.user.save
                 self.points += 10
                 self.save
-                computer += " Computer Left Dodge You Right Dodge!"
+                computer = "#{self.computer.name} Dodges Left You Dodge Right!"
             elsif computer == "rd"
                 self.user.ap = self.user.ap + 5
                 self.user.save
                 self.points += 10
                 self.save
-                computer += " Computer Right Dodge You Right Dodge!"
+                computer = " #{self.computer.name} Dodges Right You Dodge Right!"
 
             end
             computer
@@ -102,23 +102,23 @@ class Game < ApplicationRecord
                 self.user.save
                 self.points += 10
                 self.save
-                computer += " Successful Dodge!"
+                computer = "#{self.computer.name} Left Hooks You Dodge Left"
             elsif computer == "rh"
                 self.user.hp -= self.computer.ap
                 self.computer.save
-                computer += "#{self.computer.name} Hits!"
+                computer = "#{self.computer.name} Hits You With Right Hook!"
             elsif computer == "ld"
                 self.user.ap = self.user.ap + 5
                 self.user.save
                 self.points += 10
                 self.save
-                computer += " Successful Dodge!"
+                computer = "#{self.computer.name} Dodges Left You Dodge Left!"
             elsif computer == "rd"
                 self.user.ap = self.user.ap + 5
                 self.user.save
                 self.points += 10
                 self.save
-                computer += " Successful Dodge!"
+                computer = "#{self.computer.name} Dodges Right You Dodge Left!"
             end
             computer
     
