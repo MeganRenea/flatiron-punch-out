@@ -1,49 +1,64 @@
-<div class="ring">
-    <div class="points">
-        Points: <%= @game.points%>
-    </div>
-    <div class="round">
-            Round: <%= @game.round %>
-    </div>
-    <%if flash[:computer] && flash[:computer].include?("You Right Hook")%>
-        <img src="https://i.ibb.co/3WjFmqB/user-throws-right-hook-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("You Left Hook")%>
-        <img src="https://i.ibb.co/Dz5Zc5B/user-left-hook-4x.png">
-        <%else%>
-        <img src="https://i.ibb.co/NWH0PGL/LVL3-USER-STAND-4x.png">
-    <%end%>
+<div class="title">
+        <img src="https://i.imgur.com/38hTHdk.png">
 </div>
-<div class="punches clearfix">
-    <div class="l_hook">
-        <img src="/left_hook.png"/>
-        <%=button_to "", user_game_left_hook_path(@user, @game)%> 
+    <div class="ring">
+        <div class="points">
+            Points: <%= @game.points%>
+        </div>
+        <div class="round">
+                Round: <%= @game.round %>
+        </div>
+        <%if flash[:computer] && flash[:computer].include?("You Right Hook")%>
+            <img src="https://i.ibb.co/3WjFmqB/user-throws-right-hook-4x.png">
+            <%elsif flash[:computer] && flash[:computer].include?("You Left Hook")%>
+            <img src="https://i.ibb.co/Dz5Zc5B/user-left-hook-4x.png">
+            <%else%>
+            <img src="https://i.ibb.co/NWH0PGL/LVL3-USER-STAND-4x.png">
+        <%end%>
+        <div class= "user_hp">
+                <%=@user.name%> Health: <%= @user.hp %>
+            </div>
+            <div class="comp_hp">
+                <%=@computer.name%> Health: <%= @game.computer.hp %>
+            </div>
     </div>
-    <div class="r_hook">
-        <img src="/right_hook.png"/>
-        <%=button_to "", user_game_right_hook_path(@user, @game)%>
-    </div>
+        
+        
+    
 </div>
-<div class="dodges clearfix">
-    <div class= "d_left">
-        <img src="/dodge_left.png"/>
-        <%=button_to "", user_game_left_dodge_path(@user, @game)%>
-    </div>
-    <div class= "d_right">
-        <img src="/dodge_right.png"/>
-        <%=button_to "", user_game_right_dodge_path(@user, @game)%>
-    </div>
-</div><% if @game.user_hits >= 3 %>
-<%= button_to "Uppercut", user_game_uppercut_path(@user, @game)%>
-<% end %>
-<%= @user.hp %>
-<%= @game.computer.hp %>
 
-<% if flash[:computer] %>
-<p><%= flash[:computer] %></p>
-<% end %>
-<% if flash[:results] %>
-<p><%= flash[:results] %></p>
-<% end %>
-<% if flash[:hit] %>
-<p><%= flash[:hit] %></p>
-<% end %>
+
+    <div class="punches clearfix">
+        <div class="l_hook">
+            <img src="/left_hook.png"/>
+            <%=button_to "", user_game_left_hook_path(@user, @game)%> 
+        </div>
+        <div class="r_hook">
+            <img src="/right_hook.png"/>
+            <%=button_to "", user_game_right_hook_path(@user, @game)%>
+        </div>
+    </div>
+    <div class="dodges clearfix">
+        <div class= "d_left">
+            <img src="/dodge_left.png"/>
+            <%=button_to "", user_game_left_dodge_path(@user, @game)%>
+        </div>
+        <div class= "d_right">
+            <img src="/dodge_right.png"/>
+            <%=button_to "", user_game_right_dodge_path(@user, @game)%>
+        </div>
+    </div><% if @game.user_hits >= 3 %>
+    <%= button_to "Uppercut", user_game_uppercut_path(@user, @game)%>
+    <% end %>
+
+<!-- <div class= "game_messages"> -->
+        <% if flash[:computer] %>
+        <p><%= flash[:computer] %></p>
+        <% end %>
+        <% if flash[:results] %>
+        <p><%= flash[:results] %></p>
+        <% end %>
+        <% if flash[:hit] %>
+        <p><%= flash[:hit] %></p>
+        <% end %>
+    <!-- </div> -->

@@ -17,12 +17,31 @@
      display: block;
      margin-left: auto;
      margin-right: auto;
-     width: 60%;
+     width: 100%;
  }
  body {
-      background-color: lightslategray;
-     color: white;
+    background-image: url(https://i.ibb.co/LSVhXqZ/flpunchout-background-4x.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
  }
+ .title {
+    background: rgba(0,0,0,0) !important;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+ .ring {
+    background-color: black;
+    
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+
 
  /* .button_to {
   background: url(../../public/DODGE\RIGHT\BUTTON@4x.png);
@@ -40,15 +59,29 @@
 
  .r_hook {
      float: left;
+     position: relative;
+     left: 38%;
  }
 
  .l_hook {
      float: left;
+     position: relative;
+     left: 32%;
  }
 
 
- .d_left, .d_right {
+ .d_left {
     float: left;
+    position: relative;
+    left: 43%;
+
+ }
+ 
+ .d_right {
+    float: left;
+    position: relative;
+    left: 45%;
+    
 }
 
 .dodges {
@@ -57,8 +90,10 @@
 }
 
 .punches {
+    clear: both;
     margin: 0 auto;
     width: 40%;
+
 }
 
 
@@ -67,15 +102,22 @@
     
 }
 
- .r_hook img, .l_hook img, .d_left img, .d_right img{
+ .r_hook img, .l_hook img{ 
      position: absolute;
      top: 0;
      height: 70px;
      width: 70px;
  }
 
+ .d_left img, .d_right img{
+    position: absolute;
+    top: 0;
+    height: 50px;
+    width: 70px;
+ }
+
  .r_hook form input[type=submit], .l_hook form input[type=submit] , .d_left form input[type=submit], .d_right form input[type=submit] {
-    -webkit-appearance: none;
+    -webkit-appearance: button;
     background-color: rgba(0,0,0,0);
     position: absolute;
     top: 0;
@@ -94,14 +136,50 @@
    .round {
       position: relative;
       float: right;
-      right: 20%;
+      right: 10%;
+      font-family: Roboto;
+      font-size: large;
+      font-weight: bolder;
 
   }
 
   .points {
     position: relative;
     float: left;
-    left: 21%;
+    left: 10%;
+    font-family: Roboto;
+    font-size: large;
+    font-weight: bolder;
+    
   }
+
+.user_hp {
+    position: relative;
+    float: left;
+    color: black;
+    font-family: Roboto;
+    font-size: x-large;
+    font-weight: bolder;
+
+    }
+
+.comp_hp {
+    position: relative;
+    float: right;
+    color: black;
+    
+    text-align: right;
+    font-family: Roboto;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+/* .game_messages {
+    position: relative;
+    float: left;
+    left: 37%;
+
+
+} */
 
   
