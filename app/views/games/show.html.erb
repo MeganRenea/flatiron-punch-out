@@ -1,6 +1,4 @@
-<div class="title">
-        <img src="https://i.imgur.com/38hTHdk.png">
-</div>
+
     <div class="ring">
         <div class="points">
             Points: <%= @game.points%>
@@ -22,11 +20,12 @@
                 <%=@computer.name%> Health: <%= @game.computer.hp %>
             </div>
     </div>
-        
-        
     
 </div>
-
+</div><% if @game.user_hits >= 3 %>
+<div class="uppercut">
+<%= link_to image_tag("https://i.ibb.co/NV33Ptw/uppercut-button-4x.png"), user_game_uppercut_path(@user, @game), method: :post%></div>
+<% end %>
 
     <div class="punches clearfix">
         <div class="l_hook">
@@ -47,18 +46,12 @@
             <img src="/dodge_right.png"/>
             <%=button_to "", user_game_right_dodge_path(@user, @game)%>
         </div>
-    </div><% if @game.user_hits >= 3 %>
-    <%= button_to "Uppercut", user_game_uppercut_path(@user, @game)%>
-    <% end %>
-
-<!-- <div class= "game_messages"> -->
+    
+ <div class= "game_messages"> 
         <% if flash[:computer] %>
-        <p><%= flash[:computer] %></p>
-        <% end %>
+        <%= flash[:computer] %>
+        <% end %> <br>
         <% if flash[:results] %>
-        <p><%= flash[:results] %></p>
+        <%= flash[:results] %>
         <% end %>
-        <% if flash[:hit] %>
-        <p><%= flash[:hit] %></p>
-        <% end %>
-    <!-- </div> -->
+</div>

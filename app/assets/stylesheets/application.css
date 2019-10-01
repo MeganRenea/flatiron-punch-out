@@ -26,7 +26,7 @@
     color: white;
  }
  .title {
-    background: rgba(0,0,0,0) !important;
+    background: rgba(0,0,0,0);
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
@@ -34,12 +34,16 @@
 }
  .ring {
     background-color: black;
-    
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: bold;
     width: 60%;
 }
+
 
 
 
@@ -137,7 +141,7 @@
       position: relative;
       float: right;
       right: 10%;
-      font-family: Roboto;
+      font-family: sans-serif;
       font-size: large;
       font-weight: bolder;
 
@@ -147,7 +151,7 @@
     position: relative;
     float: left;
     left: 10%;
-    font-family: Roboto;
+    font-family: sans-serif;
     font-size: large;
     font-weight: bolder;
     
@@ -157,7 +161,7 @@
     position: relative;
     float: left;
     color: black;
-    font-family: Roboto;
+    font-family: sans-serif;
     font-size: x-large;
     font-weight: bolder;
 
@@ -169,17 +173,54 @@
     color: black;
     
     text-align: right;
-    font-family: Roboto;
+    font-family: sans-serif;
     font-size: x-large;
     font-weight: bolder;
 }
 
-/* .game_messages {
+.uppercut {
+    height: 25px;
+    width: 80px;
     position: relative;
-    float: left;
-    left: 37%;
+    margin-left: 46.8%;
+    margin-right: auto;
+   bottom: -5%;
+}
 
+ .game_messages {
+   color: rgb(8, 23, 243);
+   font-family: sans-serif;
+   font-weight: bold;
+   font-size: large;
 
-} */
+}
 
-  
+.user {
+    position: relative;
+    margin: auto;
+    height: 600px;
+    width: 850px;
+
+}
+
+.fight {
+    position: relative;
+    margin: auto;
+    height: 600px;
+    width: 850px;
+    top: 50%
+}
+
+.home {
+    position: relative;
+    margin: auto;
+    height: 600px;
+    width: 850px;
+    top: 50%
+}
+
+  span {
+      font-family: sans-serif;
+      font-weight: bold;
+      color: firebrick
+  }
