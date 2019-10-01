@@ -23,9 +23,10 @@ class Game < ApplicationRecord
         elsif computer == "rd"
             self.computer.hp -= self.user.ap 
             self.computer.save
+            self.points += self.user.ap
             self.user_hits += 1
             self.save
-            computer += "You Left Hook Hit!"
+            computer += " You Left Hook Hit!"
         end
         computer
     end
