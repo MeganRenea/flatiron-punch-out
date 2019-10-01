@@ -1,5 +1,5 @@
 <%= @user.name %>
 <p> You have won <%= @user.wins %> times.</p>
-<%= button_to "Play Game", user_games_path(@user)%>
+<%= button_to "Play Game", user_computer_lvl_path(@user), method: :get%>
 <%= button_to "Leaderboard", leaderboard_path(@user), method: :get%>
 <%= button_to "Logout", new_user_path, method: :get%>

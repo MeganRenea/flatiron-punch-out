@@ -2,9 +2,9 @@
 <h1>Leaderboard</h1>
 <% @hash.each do |k,v| %>
 <% if k == @user.name %>
-<p>You have <%= v %> win(s).</p>
+<p>You have <%= v %> points.</p>
 <% else %>
-<p><%= k %> has <%= v %> win(s)</p>
+<p><%= k %> has <%= v %> points</p>
 <% end %>
 <% end %>
 <%= button_to "Back", @user, method: :get %>

@@ -13,3 +13,95 @@
  *= require_tree .
  *= require_self
  */
+ img {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 60%;
+ }
+ body {
+      background-color: lightslategray;
+     color: white;
+ }
+
+ /* .button_to {
+  background: url(../../public/DODGE\RIGHT\BUTTON@4x.png);
+  text-indent: 30px;
+   display: block;
+   cursor: pointer;
+ } */
+
+ .r_hook , .l_hook, .d_left, .d_right{
+     position: relative;
+     height: 70px;
+     width: 70px;
+     box-sizing: border-box;
+ }
+
+ .r_hook {
+     float: left;
+ }
+
+ .l_hook {
+     float: left;
+ }
+
+
+ .d_left, .d_right {
+    float: left;
+}
+
+.dodges {
+    clear: both;
+    margin: 0 auto;
+}
+
+.punches {
+    margin: 0 auto;
+    width: 40%;
+}
+
+
+.r_hook{
+    position: relative;
+    
+}
+
+ .r_hook img, .l_hook img, .d_left img, .d_right img{
+     position: absolute;
+     top: 0;
+     height: 70px;
+     width: 70px;
+ }
+
+ .r_hook form input[type=submit], .l_hook form input[type=submit] , .d_left form input[type=submit], .d_right form input[type=submit] {
+    -webkit-appearance: none;
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    top: 0;
+    border: none;
+    content: "";
+    height: 70px;
+    width: 70px;
+ } 
+
+ .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+   .round {
+      position: relative;
+      float: right;
+      right: 20%;
+
+  }
+
+  .points {
+    position: relative;
+    float: left;
+    left: 21%;
+  }
+
+  

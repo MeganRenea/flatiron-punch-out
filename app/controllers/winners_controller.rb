@@ -1,9 +1,8 @@
 class WinnersController < ApplicationController
     def index
         @user = User.find(params[:id])
-        @hash = Winner.all.reduce({}) do |hash, winner|
-            hash[winner.user.name] ||= 0
-            hash[winner.user.name] += 1
+        @hash = User.all.reduce({}) do |hash, user| 
+            hash[user.name] = user.high_score
             hash
         end
         @hash = @hash.sort_by {|k, v| -v}

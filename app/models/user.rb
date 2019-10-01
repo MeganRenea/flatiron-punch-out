@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    before_save :ap_adjust
     has_many :games
     has_many :winners
 
@@ -8,14 +9,29 @@ class User < ApplicationRecord
     wins ||= 0
     end
 
-
-    def ap=(num)
-        if num < 10
-        @ap = 10
-        elsif num > 35
-            @ap = 35
+    def high_score
+        wins = Winner.all.select {|winner| winner.user == self}
+        if wins != []
+        high_score = wins.reduce(0) do |score, win|
+            score = win.game.points
+            if win.game.points > score
+                score = win.game.points
+            end
+            score
+        end
         else
-        @ap = num
+            high_score = 0
+        end
+        high_score
+    end
+
+    private
+
+    def ap_adjust
+        if ap < 10
+            self.ap = 10
+        elsif ap > 35
+            self.ap = 35
         end
     end
 
