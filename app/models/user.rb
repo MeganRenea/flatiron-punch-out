@@ -13,7 +13,7 @@ class User < ApplicationRecord
         wins = Winner.all.select {|winner| winner.user == self}
         if wins != []
         high_score = wins.reduce(0) do |score, win|
-            score = win.game.points
+            
             if win.game.points > score
                 score = win.game.points
             end
