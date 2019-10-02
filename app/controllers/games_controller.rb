@@ -101,7 +101,7 @@ class GamesController < ApplicationController
         @game.user_hits = 0
         @game.save
         redirect_to user_game_path(params[:user_id],@game)
-        flash[:computer] = "Uppercut! 20 damage!!"
+        flash[:computer] = "Uppercut!! 20 Damage!"
     end
 
     def computer_lvl

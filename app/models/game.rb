@@ -13,20 +13,20 @@ class Game < ApplicationRecord
             self.user_hits += 1
             self.points += self.user.ap
             self.save
-            computer = "You Left Hook! The Computer Left Hooks!"
+            computer = "You Both Trade Left Hooks"
         elsif computer == "rh"
             self.user.ap = self.user.ap - 5
             self.user.save
             computer = " #{self.computer.name} Blocks!"
         elsif computer == "ld"
-            computer = "You Miss!"
+            computer = "Your Left Hook Misses!"
         elsif computer == "rd"
             self.computer.hp -= self.user.ap 
             self.computer.save
             self.points += self.user.ap
             self.user_hits += 1
             self.save
-            computer = " You Left Hook!"
+            computer = "You Land a Left Hook!"
         end
         computer
     end
@@ -47,16 +47,16 @@ class Game < ApplicationRecord
                 self.computer.save
                 self.user_hits += 1
                 self.save
-                computer = "You Right Hook! #{self.computer.name} Right Hooks!"
+                computer = "You Both trade Right Hooks"
             elsif computer == "ld"
                 self.computer.hp -= self.user.ap 
                 self.computer.save
                 self.user_hits += 1
                 self.points += self.user.ap
                 self.save
-                computer = "You Right Hook"
+                computer = "Your Right Hook Lands"
             elsif computer == "rd"
-                computer = "You Miss!"
+                computer = "Your Right Hook Misses!"
                
             end
     
@@ -69,25 +69,25 @@ class Game < ApplicationRecord
             if computer == "lh"
                 self.user.hp -= self.computer.ap
                 self.user.save
-                computer = "#{self.computer.name} Hits You With Left Hook!"
+                computer = "#{self.computer.name} Connects with a Left Hook!"
             elsif computer == "rh"
                 self.user.ap = self.user.ap + 5
                 self.user.save
                 self.points += 10
                 self.save
-                computer = "#{self.computer.name} Right Hooks You Dodge Right!"
+                computer = "You Dodge #{self.computer.name}'s Right Hook!"
             elsif computer == "ld"
                 self.user.ap = self.user.ap + 5
                 self.user.save
                 self.points += 10
                 self.save
-                computer = "#{self.computer.name} Dodges Left You Dodge Right!"
+                computer = "You Both Dodge"
             elsif computer == "rd"
                 self.user.ap = self.user.ap + 5
                 self.user.save
                 self.points += 10
                 self.save
-                computer = " #{self.computer.name} Dodges Right You Dodge Right!"
+                computer = "You Both Dodge"
 
             end
             computer
@@ -102,23 +102,23 @@ class Game < ApplicationRecord
                 self.user.save
                 self.points += 10
                 self.save
-                computer = "#{self.computer.name} Left Hooks You Dodge Left"
+                computer = "You Dodge #{self.computer.name}'s Left Hook"
             elsif computer == "rh"
                 self.user.hp -= self.computer.ap
                 self.computer.save
-                computer = "#{self.computer.name} Hits You With Right Hook!"
+                computer = "#{self.computer.name} Connects with a Right Hook!"
             elsif computer == "ld"
                 self.user.ap = self.user.ap + 5
                 self.user.save
                 self.points += 10
                 self.save
-                computer = "#{self.computer.name} Dodges Left You Dodge Left!"
+                computer = "You Both Dodge"
             elsif computer == "rd"
                 self.user.ap = self.user.ap + 5
                 self.user.save
                 self.points += 10
                 self.save
-                computer = "#{self.computer.name} Dodges Right You Dodge Left!"
+                computer = "You Both Dodge"
             end
             computer
     
