@@ -10,7 +10,7 @@ class GamesController < ApplicationController
         @game = Game.create(user_id: @user.id, computer: @computer)
         redirect_to "/users/#{@user.id}/games/#{@game.id}"
     elsif @user.level == 3
-        @computer = Computer.create(name: "RedDarkness", ap: 30)
+        @computer = Computer.create(name: "Red Darkness", ap: 30)
         @game = Game.create(user_id: @user.id, computer: @computer)
         redirect_to "/users/#{@user.id}/games/#{@game.id}"
     elsif @user.level > 3
@@ -111,4 +111,6 @@ class GamesController < ApplicationController
         @user = User.find(params[:user_id])
         render :computer_lvl
     end
+
+   
 end

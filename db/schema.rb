@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_10_02_160433) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", default: "Name"
+    t.string "name"
     t.integer "hp", default: 100
     t.integer "ap", default: 10
     t.datetime "created_at", precision: 6, null: false
