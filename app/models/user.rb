@@ -14,8 +14,8 @@ class User < ApplicationRecord
         if wins != []
         high_score = wins.reduce(0) do |score, win|
             
-            if win.game.points > score
-                score = win.game.points
+            if win.user_points > score
+                score = win.user_points
             end
             score
         end
