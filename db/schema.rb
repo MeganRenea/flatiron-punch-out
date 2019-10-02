@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_162602) do
+ActiveRecord::Schema.define(version: 2019_10_02_160433) do
 
   create_table "computers", force: :cascade do |t|
     t.string "name", default: "Computer"
@@ -41,12 +41,13 @@ ActiveRecord::Schema.define(version: 2019_09_30_162602) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "Name"
     t.integer "hp", default: 100
     t.integer "ap", default: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "level", default: 1
+    t.integer "points", default: 0
   end
 
   create_table "winners", force: :cascade do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_162602) do
     t.integer "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_points", default: 0
   end
 
 end

@@ -6,12 +6,13 @@
 <p>Successful attacks do 10 damage.</p>
 <p>Successful dodges increases your attack power by 5</p>
 <p>3 successful hits gives you a special move that gives 20 damage</p>
+<p>Best out of three round wins!</p>
 <p>Defeat all your opponents and then come face to face with the legendary</p>
-<span>Red Darkness</span>
+<span>Red Darkness</span> <br><br>
 
 <%= form_for @user do |f| %>
-<%= f.label :name%>
-<%= f.text_field :name %>
-<%= f.submit %>
+<%= f.text_field :name, :placeholder => "Name" %><br>
+<%= f.submit "Submit" %>
 <% end %>
 </div> <br>
+

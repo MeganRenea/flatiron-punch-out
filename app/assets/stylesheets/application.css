@@ -222,5 +222,10 @@
   span {
       font-family: sans-serif;
       font-weight: bold;
-      color: firebrick
+      color: firebrick;
+      font-size: x-large;
+  }
+
+  .home form input[type=submit] {
+      background-color: orange;
   }
