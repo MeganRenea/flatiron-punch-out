@@ -32,12 +32,11 @@ class GamesController < ApplicationController
         @user = User.find(params[:user_id])
         @game = Game.find(params[:id])
         @computer = @game.computer
-        if @game.computer.hp <= 0 && @game.round <= 3
+        if @game.computer.hp <= 0 && @game.round <= 3 && @game.user_wins < 2 && @game.computer_wins < 2
             flash[:results] = "You Win!"
             @game.points += @user.hp + @user.ap
             @game.round += 1
             @game.user_wins += 1
-            
             @game.user_hits = 0
             @user.hp = 100
             @user.ap = 10
@@ -46,9 +45,10 @@ class GamesController < ApplicationController
             @user.save
             @computer.save
             @game.save
-        elsif @user.hp <= 0 && @game.round <= 3
+            render :round
+        elsif @user.hp <= 0 && @game.round <= 3 && @game.user_wins < 2 && @game.computer_wins < 2
             flash[:results] = "You lose!"
-            @game.points -= 50
+            @user.points -= 50
             @game.round += 1
             @game.computer_wins += 1
             @user.hp = 100
@@ -58,17 +58,26 @@ class GamesController < ApplicationController
             @computer.hp = 100
             @computer.save
             @game.save
-        end
-        if @game.computer_wins == 2
+            render :round
+        elsif @game.computer_wins >= 2
             @user.level = 1
             @user.points = 0
             @user.save
             render :lose
-        elsif @game.user_wins == 2
+        elsif @game.user_wins >= 2
             winner = Winner.create(user: @user, game_id: @game.id, user_points: @user.points)
+            @game.user_wins += 1
+            @game.user_hits = 0
+            @user.hp = 100
+            @user.ap = 10
+            @user.save
+            @computer.hp = 100
+            @user.save
+            @computer.save
+            @game.save
             @user.level += 1
             @user.save
-            render :computer_lvl
+            render :win
         end
 
     end
@@ -113,5 +122,9 @@ class GamesController < ApplicationController
         render :computer_lvl
     end
 
+    def next_round
+        @game = Game.find(params[:game_id])
+        redirect_to user_game_path(params[:user_id],@game)
+    end
    
 end
