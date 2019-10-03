@@ -10,6 +10,8 @@
 <% @user.level = 4 %>
 <% @user.save %>
 <img src="https://i.ibb.co/K9nrZPr/you-win-page-4x.png">
+<%= audio_tag "Win.mp3", id:"sound", class: "audio-to-play", autoplay: true %>
+    
 
 <% end %> 
 
