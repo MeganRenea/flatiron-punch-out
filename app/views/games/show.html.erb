@@ -21,9 +21,11 @@
                 <img src="https://i.ibb.co/nB18Q98/LVL1-YOANLEFTHOOKDODGE-4x.png" >
             <%elsif flash[:computer].include?("You Dodge Yoan's Right Hook")%> 
                 <img src="https://i.ibb.co/NC1v3MT/LVL1-YOANRIGHTHOOKDODGE-4x.png">
-            <%elsif flash[:computer].include?("Yoan Connects with a Right Hook!")%> 
+            <%elsif flash[:computer].include?("Yoan Connects with a Right Hook!")%>
+            <%= audio_tag "oppHit.mp3", id:"sound", class: "audio-to-play", autoplay: true %>     
                 <img src="https://i.ibb.co/84CvqpG/LVL1-YOANRIGHTHOOKHIT-4x.png">
             <%elsif flash[:computer].include?("Yoan Connects with a Left Hook!")%> 
+            <%= audio_tag "oppHit.mp3", id:"sound", class: "audio-to-play", autoplay: true %>  
                 <img src="https://i.ibb.co/f2XGnmj/LVL1-YOANLEFTHOOKHIT-4x.png">
             <%elsif flash[:computer].include?("Uppercut!!")%> 
                 <img src="https://i.ibb.co/W2Jb4xL/LVL1-UPPERCUT-4x.png">
@@ -60,7 +62,9 @@
             <img src="https://i.ibb.co/tBJvDZM/LVL2-SEBRIGHTHOOKMISS-4x.png">
         <%elsif flash[:computer].include?("Sebastian Connects with a Right Hook!")%> 
             <img src="https://i.ibb.co/vLtxJWV/LVL2-SEBRIGHTHOOKHIT-4x.png">
+            <%= audio_tag "oppHit.mp3", id:"sound", class: "audio-to-play", autoplay: true %>  
         <%elsif flash[:computer].include?("Sebastian Connects with a Left Hook!")%> 
+        <%= audio_tag "oppHit.mp3", id:"sound", class: "audio-to-play", autoplay: true %>  
             <img src="https://i.ibb.co/V99Jg77/LVL2-SEBLEFTHOOKHIT-4x-png-4x.png">
         <%elsif flash[:computer].include?("Uppercut!!")%> 
             <img src="https://i.ibb.co/NFQJBzj/LVL2-UPPERCUT-4x.png">
@@ -95,8 +99,10 @@
         <%elsif flash[:computer].include?("You Dodge RedDarkness's Right Hook")%> 
             <img src="https://i.ibb.co/zJb7fgG/LVL3-REDRIGHTHOOKDODGE-4x.png">
         <%elsif flash[:computer].include?("RedDarkness Connects with a Right Hook!")%> 
+        <%= audio_tag "oppHit.mp3", id:"sound", class: "audio-to-play", autoplay: true %>  
             <img src="https://i.ibb.co/zFZxRCk/LVL3-REDRIGHTHOOKHIT-4x.png">
         <%elsif flash[:computer].include?("RedDarkness Connects with a Left Hook!")%> 
+        <%= audio_tag "oppHit.mp3", id:"sound", class: "audio-to-play", autoplay: true %>  
             <img src="https://i.ibb.co/wzG5b6P/LVL3-REDLEFTHOOKHIT-4x.png">
         <%elsif flash[:computer].include?("Uppercut!!")%> 
         <img src="https://i.ibb.co/68jcY9R/LVL3-UPPERCUT-4x.png">
