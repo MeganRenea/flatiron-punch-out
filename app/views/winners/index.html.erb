@@ -3,7 +3,7 @@
     <h1>Leaderboard</h1>
     <% @hash.each do |k,v| %>
     <% if k == @user.name %>
-    <p>Your high score is <%= v %> points.</p>
+    <p style="color: rgb(0, 255, 0)">Your high score is <%= v %> points.</p>
     <% else %>
     <p><%= k %>'s high score is <%= v %> points</p>
     <% end %>

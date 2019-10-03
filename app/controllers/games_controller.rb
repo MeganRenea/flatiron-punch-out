@@ -45,11 +45,11 @@ class GamesController < ApplicationController
             @user.save
             @computer.save
             @game.save
-            render :round
+            render :round unless @game.computer_wins >= 2 || @game.user_wins >= 2
         elsif @user.hp <= 0 && @game.round <= 3 && @game.user_wins < 2 && @game.computer_wins < 2
             flash[:results] = "You lose!"
             @user.points -= 50
-            @game.round += 1
+            @game.round += 
             @game.computer_wins += 1
             @user.hp = 100
             @game.user_hits = 0
@@ -58,8 +58,9 @@ class GamesController < ApplicationController
             @computer.hp = 100
             @computer.save
             @game.save
-            render :round
-        elsif @game.computer_wins >= 2
+            render :round unless @game.computer_wins >= 2 || @game.user_wins >= 2
+        end
+        if @game.computer_wins >= 2
             @user.level = 1
             @user.points = 0
             @user.save

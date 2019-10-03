@@ -1,8 +1,11 @@
 <div class="ring">
    <% if @game.round == 2%>
     <img src="https://i.ibb.co/yPkxSBz/Asset-5-4x.png">
+    <%= audio_tag "round.mp3", id:"sound", class: "audio-to-play", autoplay: true %>
+    
     <% elsif @game.round == 3 %>
     <img src="https://i.ibb.co/S0NkP27/round-3-4x.png">
-    <% end %>
+    <%= audio_tag "round.mp3", id:"sound", class: "audio-to-play", autoplay: true %>
+   <% end %>
+    <%= button_to "Continue", user_game_next_round_path(@user, @game)%>
 </div>
-<%= button_to "Continue", user_game_next_round_path(@user, @game)%>
