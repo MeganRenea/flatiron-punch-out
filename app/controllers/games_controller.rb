@@ -6,21 +6,22 @@ class GamesController < ApplicationController
     def create
     @user = User.find(params[:user_id])
     if @user.level == 2
+        flash[:computer] = ""
         @computer = Computer.create(name: "Sebastian", ap: 20)
         @game = Game.create(user_id: @user.id, computer: @computer)
         redirect_to "/users/#{@user.id}/games/#{@game.id}"
     elsif @user.level == 3
+        flash[:computer] = ""
         @computer = Computer.create(name: "Red Darkness", ap: 30)
         @game = Game.create(user_id: @user.id, computer: @computer)
         redirect_to "/users/#{@user.id}/games/#{@game.id}"
-    elsif @user.level > 3
-        @user.level = 1
-        @user.save
-        redirect_to @user
     else 
+        flash[:computer] = ""
         @user.points = 0
+        @user.level = 1
         @computer = Computer.create(name: "Yoan")
         @game = Game.create(user_id: @user.id, computer: @computer)
+        @user.save
         redirect_to "/users/#{@user.id}/games/#{@game.id}"
     end
 
@@ -67,7 +68,7 @@ class GamesController < ApplicationController
             winner = Winner.create(user: @user, game_id: @game.id, user_points: @user.points)
             @user.level += 1
             @user.save
-            render :win
+            render :computer_lvl
         end
 
     end

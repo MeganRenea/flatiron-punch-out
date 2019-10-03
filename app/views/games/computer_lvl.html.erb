@@ -1,4 +1,12 @@
 
-<div class="ring fight">
-    <%= link_to  image_tag("https://i.ibb.co/0jKvqdM/fight-button-4x.png") , user_games_path(@user), method: :post%>
+<div class="ring">
+    <% if @user.level == 1%>
+    <img src="https://i.ibb.co/kg2H89d/YOANVSPAGE-4x.png">
+    <% elsif @user.level == 2%>
+    <img src="https://i.ibb.co/mB0rd6T/SEBVSPAGE-4x.png">
+    <% elsif @user.level == 3%>
+    <img src="https://i.ibb.co/3pFXDdf/REDDVSPAGE-4x.png">
+    <% end %>
+    <div class="fight">
+    <%= link_to  image_tag("https://i.ibb.co/0jKvqdM/fight-button-4x.png") , user_games_path(@user), method: :post%></div>
 </div>
