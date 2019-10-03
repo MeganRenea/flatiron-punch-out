@@ -8,11 +8,11 @@ class Game < ApplicationRecord
         if computer == "lh"
             self.computer.hp -= self.user.ap 
             self.user.hp -= self.computer.ap
-            self.user.save
             self.computer.save
             self.user_hits += 1
-            self.points += self.user.ap
+            self.user.points += self.user.ap
             self.save
+            self.user.save
             computer = "You Both Trade Left Hooks"
         elsif computer == "rh"
             self.user.ap = self.user.ap - 5
@@ -23,8 +23,9 @@ class Game < ApplicationRecord
         elsif computer == "rd"
             self.computer.hp -= self.user.ap 
             self.computer.save
-            self.points += self.user.ap
+            self.user.points += self.user.ap
             self.user_hits += 1
+            self.user.save
             self.save
             computer = "You Land a Left Hook!"
         end
@@ -42,7 +43,7 @@ class Game < ApplicationRecord
             elsif computer == "rh"
                 self.computer.hp -= self.user.ap 
                 self.user.hp -= self.computer.ap
-                self.points += self.user.ap
+                self.user.points += self.user.ap
                 self.user.save
                 self.computer.save
                 self.user_hits += 1
@@ -52,7 +53,8 @@ class Game < ApplicationRecord
                 self.computer.hp -= self.user.ap 
                 self.computer.save
                 self.user_hits += 1
-                self.points += self.user.ap
+                self.user.points += self.user.ap
+                self.user.save
                 self.save
                 computer = "Your Right Hook Lands"
             elsif computer == "rd"
@@ -72,21 +74,20 @@ class Game < ApplicationRecord
                 computer = "#{self.computer.name} Connects with a Left Hook!"
             elsif computer == "rh"
                 self.user.ap = self.user.ap + 5
+                self.user.points += 10
                 self.user.save
-                self.points += 10
                 self.save
                 computer = "You Dodge #{self.computer.name}'s Right Hook!"
             elsif computer == "ld"
                 self.user.ap = self.user.ap + 5
+                self.user.points += 10
                 self.user.save
-                self.points += 10
-                self.save
                 computer = "You Both Dodge"
             elsif computer == "rd"
                 self.user.ap = self.user.ap + 5
                 self.user.save
-                self.points += 10
-                self.save
+                self.user.points += 10
+                self.user.save
                 computer = "You Both Dodge"
 
             end
@@ -99,25 +100,22 @@ class Game < ApplicationRecord
         
             if computer == "lh"
                 self.user.ap = self.user.ap + 5
+                self.user.points += 10
                 self.user.save
-                self.points += 10
-                self.save
                 computer = "You Dodge #{self.computer.name}'s Left Hook"
             elsif computer == "rh"
                 self.user.hp -= self.computer.ap
-                self.computer.save
+                self.user.save
                 computer = "#{self.computer.name} Connects with a Right Hook!"
             elsif computer == "ld"
                 self.user.ap = self.user.ap + 5
+                self.user.points += 10
                 self.user.save
-                self.points += 10
-                self.save
                 computer = "You Both Dodge"
             elsif computer == "rd"
                 self.user.ap = self.user.ap + 5
+                self.user.points += 10
                 self.user.save
-                self.points += 10
-                self.save
                 computer = "You Both Dodge"
             end
             computer
@@ -127,8 +125,8 @@ class Game < ApplicationRecord
         def uppercut
             self.computer.hp -= 20
             self.computer.save
-            self.points += 20
-            self.save
+            self.user.points += 20
+            self.user.save
             
         end
     
