@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :computers
   resources :users do
     resources :games do
+      post "/next_round", to:"games#next_round", as: "next_round"
       post "/left_hook", to: "games#left_hook", as:"left_hook"
       post "/right_hook", to: "games#right_hook", as:"right_hook"
       post "/left_dodge", to: "games#left_dodge", as:"left_dodge"

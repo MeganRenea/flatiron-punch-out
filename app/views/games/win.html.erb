@@ -1,4 +1,4 @@
-<% if @computer.name == "Yoan" %>
+<div class="ring"><% if @computer.name == "Yoan" %>
 <% @user.level = 2 %>
 <% @user.save %>
 <img src="https://i.ibb.co/7gGnKtw/KO-YOAN-4x.png">
@@ -16,9 +16,9 @@
 
 <% if @user.level <= 3 %>
 <%= button_to "My Page", @user, method: :get %>
-<%= button_to "Next Level", user_games_path(@user), method: :post %>
+<%= button_to "Next Level", user_computer_lvl_path(@user), method: :get%>
 <% else %>
 <%= button_to "My Page", @user, method: :get %>
 <% end %> 
-
+</div>
 
