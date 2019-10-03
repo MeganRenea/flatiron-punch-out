@@ -6,79 +6,113 @@
         <div class="round">
                 Round: <%= @game.round %>
         </div>
-        <%if flash[:computer] && flash[:computer].include?("Your Right Hook Lands") && @user.level == 1%> 
-            <img src="https://i.ibb.co/QC2rdMg/LVL1-USERRIGHTHOOKHIT-4x.png">   
-            <%= audio_tag "landed_punch.mp3", id:"sound", class: "audio-to-play", autoplay: true %>         
-        <%elsif flash[:computer] && flash[:computer].include?("You Land a Left Hook") && @user.level == 1%> 
-            <img src="https://i.ibb.co/py5Ms7y/LVL1-USERLEFTHOOKHIT-4x.png">
-            <%= audio_tag "landed_punch.mp3", id:"sound", class: "audio-to-play", autoplay: true %>   
-        <%elsif flash[:computer] && flash[:computer].include?("Your Left Hook Misses") && @user.level == 1%> 
-            <img src="https://i.ibb.co/dpbhp9f/LVL1-LEFTHOOKMISS-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("Your Right Hook Misses") && @user.level == 1%> 
-            <img src="https://i.ibb.co/kS9PNtn/LVL1-RIGHTHOOKMISS-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("You Dodge Yoan's Left Hook") && @user.level == 1%> 
-            <img src="https://i.ibb.co/nB18Q98/LVL1-YOANLEFTHOOKDODGE-4x.png" >
-        <%elsif flash[:computer] && flash[:computer].include?("You Dodge Yoan's Right Hook") && @user.level == 1%> 
-            <img src="https://i.ibb.co/NC1v3MT/LVL1-YOANRIGHTHOOKDODGE-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("Yoan Connects with a Right Hook!") && @user.level == 1%> 
-            <img src="https://i.ibb.co/84CvqpG/LVL1-YOANRIGHTHOOKHIT-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("Yoan Connects with a Left Hook!") && @user.level == 1%> 
-            <img src="https://i.ibb.co/f2XGnmj/LVL1-YOANLEFTHOOKHIT-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("Uppercut!!") && @user.level == 1%> 
-            <img src="https://i.ibb.co/W2Jb4xL/LVL1-UPPERCUT-4x.png">
-            <%= audio_tag "uppercut.mp3", id:"sound", class: "audio-to-play", autoplay: true %>
+        <% if flash[:computer] && @user.level == 1 %>
+            <% if flash[:computer].include?("Your Right Hook Lands")%> 
+                <img src="https://i.ibb.co/QC2rdMg/LVL1-USERRIGHTHOOKHIT-4x.png">   
+                <%= audio_tag "landed_punch.mp3", id:"sound", class: "audio-to-play", autoplay: true %>         
+            <%elsif flash[:computer].include?("You Land a Left Hook")%> 
+                <img src="https://i.ibb.co/py5Ms7y/LVL1-USERLEFTHOOKHIT-4x.png">
+                <%= audio_tag "landed_punch.mp3", id:"sound", class: "audio-to-play", autoplay: true %>   
+            <%elsif flash[:computer].include?("Your Left Hook Misses")%> 
+                <img src="https://i.ibb.co/dpbhp9f/LVL1-LEFTHOOKMISS-4x.png">
+            <%elsif flash[:computer].include?("Your Right Hook Misses")%> 
+                <img src="https://i.ibb.co/kS9PNtn/LVL1-RIGHTHOOKMISS-4x.png">
+            <%elsif flash[:computer].include?("You Dodge Yoan's Left Hook")%> 
+                <img src="https://i.ibb.co/nB18Q98/LVL1-YOANLEFTHOOKDODGE-4x.png" >
+            <%elsif flash[:computer].include?("You Dodge Yoan's Right Hook")%> 
+                <img src="https://i.ibb.co/NC1v3MT/LVL1-YOANRIGHTHOOKDODGE-4x.png">
+            <%elsif flash[:computer].include?("Yoan Connects with a Right Hook!")%> 
+                <img src="https://i.ibb.co/84CvqpG/LVL1-YOANRIGHTHOOKHIT-4x.png">
+            <%elsif flash[:computer].include?("Yoan Connects with a Left Hook!")%> 
+                <img src="https://i.ibb.co/f2XGnmj/LVL1-YOANLEFTHOOKHIT-4x.png">
+            <%elsif flash[:computer].include?("Uppercut!!")%> 
+                <img src="https://i.ibb.co/W2Jb4xL/LVL1-UPPERCUT-4x.png">
+                <%= audio_tag "uppercut.mp3", id:"sound", class: "audio-to-play", autoplay: true %>
+                <% elsif flash[:computer].include?("Yoan Blocks")%>
+                <img src="https://i.ibb.co/f4x5z5b/LVL1-BLOCK-4x.png">
+                <% elsif flash[:computer].include?("Right Hooks") %>
+                <img src="https://i.ibb.co/yYTRRsN/LVL1-BOTH-RIGHTHOOK-4x.png">
+                <% elsif flash[:computer].include?("Left Hooks") %>
+                <img src="https://i.ibb.co/KKQtFvK/LVL1-BOTHLEFTHOOK-4x.png">
 
-        <%elsif  @user.level == 1 %>
-            <img src="https://i.ibb.co/jLcg9N0/LVL1-STANDOFF-4x.png">
+            <%else%>
+                <img src="https://i.ibb.co/jLcg9N0/LVL1-STANDOFF-4x.png">
+                <% end%>
+            <%elsif @user.level == 1%>
+                <img src="https://i.ibb.co/jLcg9N0/LVL1-STANDOFF-4x.png">
+        <% end%>
+
             <!-- ---------------------------------------------------------------- -->
-        <%elsif flash[:computer] && flash[:computer].include?("Your Right Hook Lands") && @user.level == 2%> 
+            <% if flash[:computer] && @user.level == 2 %>
+        <%if flash[:computer].include?("Your Right Hook Lands")%> 
             <img src="https://i.ibb.co/CMYDncX/LVL2-USERRIGHTHOOKHIT-4x.png"> 
             <%= audio_tag "landed_punch.mp3", id:"sound", class: "audio-to-play", autoplay: true %>      
-        <%elsif flash[:computer] && flash[:computer].include?("You Land a Left Hook") && @user.level == 2%> 
+        <%elsif flash[:computer].include?("You Land a Left Hook")%> 
             <img src="https://i.ibb.co/qxk700Y/LVL2-USERLEFTHOOKHIT-4x.png">
             <%= audio_tag "landed_punch.mp3", id:"sound", class: "audio-to-play", autoplay: true %>   
-        <%elsif flash[:computer] && flash[:computer].include?("Your Left Hook Misses!") && @user.level == 2%> 
+        <%elsif flash[:computer].include?("Your Left Hook Misses!")%> 
             <img src="https://i.ibb.co/r5YgnHD/LVL2-USERLEFTHOOKMISS-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("Your Right Hook Misses") && @user.level == 2%> 
+        <%elsif flash[:computer].include?("Your Right Hook Misses")%> 
             <img src="https://i.ibb.co/MCwCT77/LVL2-USERRIGHTHOOKMISS-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("You Dodge Sebastian's Left Hook") && @user.level == 2%> 
+        <%elsif flash[:computer].include?("You Dodge Sebastian's Left Hook")%> 
             <img src="https://i.ibb.co/Bf4CPmV/LVL2-SEBLEFTHOOKMISS-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("You Dodge Sebastian's Right Hook") && @user.level == 2%> 
+        <%elsif flash[:computer].include?("You Dodge Sebastian's Right Hook")%> 
             <img src="https://i.ibb.co/tBJvDZM/LVL2-SEBRIGHTHOOKMISS-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("Sebastian Connects with a Right Hook!") && @user.level == 2%> 
+        <%elsif flash[:computer].include?("Sebastian Connects with a Right Hook!")%> 
             <img src="https://i.ibb.co/vLtxJWV/LVL2-SEBRIGHTHOOKHIT-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("Sebastian Connects with a Left Hook!") && @user.level == 2%> 
+        <%elsif flash[:computer].include?("Sebastian Connects with a Left Hook!")%> 
             <img src="https://i.ibb.co/V99Jg77/LVL2-SEBLEFTHOOKHIT-4x-png-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("Uppercut!!") && @user.level == 2%> 
+        <%elsif flash[:computer].include?("Uppercut!!")%> 
             <img src="https://i.ibb.co/NFQJBzj/LVL2-UPPERCUT-4x.png">
             <%= audio_tag "uppercut.mp3", id:"sound", class: "audio-to-play", autoplay: true %>
-        <%elsif  @user.level == 2 %>
+            <%elsif flash[:computer].include?("Sebastian Blocks")%>
+            <img src="https://i.ibb.co/KzDg8tF/LVL2-BLOCK-4x.png">
+            <% elsif flash[:computer].include?("Right Hooks") %>
+            <img src="https://i.ibb.co/9tWh23r/LVL2-BOTHRIGHHOOK-4x.png">
+            <% elsif flash[:computer].include?("Left Hooks") %>
+            <img src="https://i.ibb.co/JFGsXdp/LVL2-BOTHLEFTHOOK-4x.png">
+            <%else %>
             <img src="https://i.ibb.co/Yc88bWp/LVL2-STANDOFF-4x.png">
+            <%end%>
+        <%elsif @user.level == 2%>
+            <img src="https://i.ibb.co/Yc88bWp/LVL2-STANDOFF-4x.png">
+            
+            <%end%>
      <!-- ---------------------------------------------------------------- -->
-        <%elsif flash[:computer] && flash[:computer].include?("Your Right Hook Lands") && @user.level == 3%> 
+     <%if flash[:computer] && @user.level == 3 %>
+        <%if flash[:computer].include?("Your Right Hook Lands")%> 
             <img src="https://i.ibb.co/LvBpYwg/user-throws-right-hook-4x.png">  
             <%= audio_tag "landed_punch.mp3", id:"sound", class: "audio-to-play", autoplay: true %> 
-        <%elsif flash[:computer] && flash[:computer].include?("You Land a Left Hook") && @user.level == 3%> 
+        <%elsif flash[:computer].include?("You Land a Left Hook")%> 
             <img src="https://i.ibb.co/qNN4ysr/user-left-hook-4x.png">
             <%= audio_tag "landed_punch.mp3", id:"sound", class: "audio-to-play", autoplay: true %> 
-        <%elsif flash[:computer] && flash[:computer].include?("Your Left Hook Misses!") && @user.level == 3%> 
+        <%elsif flash[:computer].include?("Your Left Hook Misses!")%> 
             <img src="https://i.ibb.co/L5F3hn2/LVL3-USERLEFTHOOKREDDODGE-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("Your Right Hook Misses") && @user.level == 3%> 
+        <%elsif flash[:computer].include?("Your Right Hook Misses")%> 
             <img src="https://i.ibb.co/8mXQqY3/LVL3-USERRIGHTHOOKREDDODGE-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("You Dodge RedDarkness's Left Hook") && @user.level == 3%> 
+        <%elsif flash[:computer].include?("You Dodge RedDarkness's Left Hook")%> 
             <img src="https://i.ibb.co/B6DRYCp/LVL3-REDLEFTHOOKDODGE-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("You Dodge RedDarkness's Right Hook") && @user.level == 3%> 
+        <%elsif flash[:computer].include?("You Dodge RedDarkness's Right Hook")%> 
             <img src="https://i.ibb.co/zJb7fgG/LVL3-REDRIGHTHOOKDODGE-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("RedDarkness Connects with a Right Hook!") && @user.level == 3%> 
+        <%elsif flash[:computer].include?("RedDarkness Connects with a Right Hook!")%> 
             <img src="https://i.ibb.co/zFZxRCk/LVL3-REDRIGHTHOOKHIT-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("RedDarkness Connects with a Left Hook!") && @user.level == 3%> 
+        <%elsif flash[:computer].include?("RedDarkness Connects with a Left Hook!")%> 
             <img src="https://i.ibb.co/wzG5b6P/LVL3-REDLEFTHOOKHIT-4x.png">
-        <%elsif flash[:computer] && flash[:computer].include?("Uppercut!!") && @user.level == 3%> 
+        <%elsif flash[:computer].include?("Uppercut!!")%> 
         <img src="https://i.ibb.co/68jcY9R/LVL3-UPPERCUT-4x.png">
         <%= audio_tag "uppercut.mp3", id:"sound", class: "audio-to-play", autoplay: true %>
-        <%elsif  @user.level == 3 %>
+        <%elsif flash[:computer].include?("RedDarkness Blocks") %>
+        <img src="https://i.ibb.co/09yKQrw/LVL3-BLOCK-4x.png">
+        <% elsif flash[:computer].include?("Right Hooks") %>
+        <img src="https://i.ibb.co/9qkFMpB/LVL3-BOTH-RIGHT-HOOK-4x.png">
+        <% elsif flash[:computer].include?("Left Hooks") %>
+        <img src="https://i.ibb.co/DpZFhF9/LVL3-BOTHLEFTHOOKS-4x.png">
+        <%else %>
             <img src="https://i.ibb.co/MBthsQ1/LVL3-USER-STAND-4x.png">
-         <%end%>
+            <%end%>
+            <% elsif @user.level == 3 %>
+            <img src="https://i.ibb.co/MBthsQ1/LVL3-USER-STAND-4x.png">
+            <%end%>
         <div class= "user_hp">
                 <%=@user.name%> Health: <%= @user.hp %>
             </div>

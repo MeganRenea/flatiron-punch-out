@@ -1,10 +1,12 @@
 
-<h1>Leaderboard</h1>
-<% @hash.each do |k,v| %>
-<% if k == @user.name %>
-<p>You have <%= v %> points.</p>
-<% else %>
-<p><%= k %> has <%= v %> points</p>
-<% end %>
-<% end %>
-<%= button_to "Back", @user, method: :get %>
+<div class="ring">
+    <h1>Leaderboard</h1>
+    <% @hash.each do |k,v| %>
+    <% if k == @user.name %>
+    <p>Your high score is <%= v %> points.</p>
+    <% else %>
+    <p><%= k %>'s high score is <%= v %> points</p>
+    <% end %>
+    <% end %>
+    <%= button_to "Back", @user, method: :get %>
+</div>

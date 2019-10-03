@@ -1,12 +1,24 @@
-<h1>You Win!</h1>
-<% if @user.level == 2 %>
+<% if @computer.name == "Yoan" %>
+<% @user.level = 2 %>
+<% @user.save %>
 <img src="https://i.ibb.co/7gGnKtw/KO-YOAN-4x.png">
-<% elsif @user.level == 3 %>
+<% elsif @computer.name == "Sebastian" %>
+<% @user.level = 3 %>
+<% @user.save %>
 <img src="https://i.ibb.co/FYxvBBK/SEB-KO-4x.png">
-<% else %>
+<% elsif @computer.name = "Red Darkness"  %>
+<% @user.level = 4 %>
+<% @user.save %>
 <img src="https://i.ibb.co/K9nrZPr/you-win-page-4x.png">
 
 <% end %> 
 
+
+<% if @user.level <= 3 %>
 <%= button_to "My Page", @user, method: :get %>
 <%= button_to "Next Level", user_games_path(@user), method: :post %>
+<% else %>
+<%= button_to "My Page", @user, method: :get %>
+<% end %> 
+
+

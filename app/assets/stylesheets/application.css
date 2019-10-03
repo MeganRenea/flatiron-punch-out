@@ -24,6 +24,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
+    letter-spacing: 2px;
+    word-spacing: 4px;
  }
  .title {
     background: rgba(0,0,0,0);
@@ -39,7 +41,7 @@
     margin-right: auto;
     text-align: center;
     font-size: large;
-    font-family: sans-serif;
+    font-family: ArcadeClassic;
     font-weight: bold;
     width: 60%;
 }
@@ -141,7 +143,7 @@
       position: relative;
       float: right;
       right: 10%;
-      font-family: sans-serif;
+      font-family: ArcadeClassic;
       font-size: large;
       font-weight: bolder;
 
@@ -151,7 +153,7 @@
     position: relative;
     float: left;
     left: 10%;
-    font-family: sans-serif;
+    font-family: ArcadeClassic;
     font-size: large;
     font-weight: bolder;
     
@@ -161,7 +163,7 @@
     position: relative;
     float: left;
     color: black;
-    font-family: sans-serif;
+    font-family: ArcadeClassic;
     font-size: x-large;
     font-weight: bolder;
 
@@ -173,7 +175,7 @@
     color: black;
     
     text-align: right;
-    font-family: sans-serif;
+    font-family: ArcadeClassic;
     font-size: x-large;
     font-weight: bolder;
 }
@@ -189,7 +191,7 @@
 
  .game_messages {
    color: rgb(8, 23, 243);
-   font-family: sans-serif;
+   font-family: ArcadeClassic;
    font-weight: bold;
    font-size: large;
 
@@ -211,16 +213,47 @@
     top: 50%
 }
 
+.fight{
+    height: 100px;
+    width: 100px;
+
+}
+
 .home {
     position: relative;
     margin: auto;
     height: 600px;
     width: 850px;
-    top: 50%
+    top: 50%;
 }
 
   span {
-      font-family: sans-serif;
+      font-family: ArcadeClassic;
       font-weight: bold;
       color: firebrick
   }
+
+  .lose {
+      background-image: url(https://i.ibb.co/4YywGMW/gameoverscreen-4x.png);
+      background-size: cover;
+      height: 600px;
+      width: 850px;
+      margin: auto;
+      background-position: center;
+      background-repeat: no-repeat
+  }
+
+  .lose form input[type=submit]{
+     position: absolute;
+     left: 46%;
+     top: 75%;
+     font-size: x-large;
+    height: 100px;
+    width: 100px;
+  }
+
+  .user form input[type=submit] {
+    font-size: x-large;
+    height: 100px;
+    width: 100px;
+}
